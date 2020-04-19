@@ -87,11 +87,11 @@ variable root_volume_encrypted {
   default       = false
 }
 
-variable aws_kms_key_id {
-  type          = string
-  description   = "ARN for KMS Key for encrypting/decrypting root volume"
-  default       = ""
-}
+#variable aws_kms_key_id {
+#  type          = string
+#  description   = "ARN for KMS Key for encrypting/decrypting root volume"
+#  default       = ""
+#}
 
 variable  ssh_key_name {
   type          = string

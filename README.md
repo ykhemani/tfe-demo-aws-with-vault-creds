@@ -201,11 +201,37 @@ echo ${TFE_ROLE_ID}
 echo ${TFE_SECRET_ID}
 ```
 
-## Configure Terraform Variables
+## Configure Terraform Workspace
 
-Let's configure the `vault_role_id` and `vault_secret_id` variables in our Terraform workspace. This can be done in the UI or via the Terraform API. Note that the UI also just makes calls to the Terraform API.
+### Fork this repo
 
-Below, we illustrate how this can be done with the Terraform API. In order to do this, we will need either a Team Token or User Token that has privileges to write to the workspace we are working with.
+Fork this repo or copy it to a version control system (VCS) provider that is configured in your Terraform Enterprise install.
+
+### Create Terraform Workspace
+
+[Create a Workspace](https://www.terraform.io/docs/cloud/getting-started/workspaces.html) in Terraform Enterprise and connect it to your VCS repo.
+
+### Configure Terraform Variables
+
+#### Terraform variables
+
+The following variables must be configured in your Terraform workspace. The variables are documented in the [variables.tf](variables.tf) file.
+
+* `owner`
+* `ssh_key_name`
+* `vault_addr`
+* `vault_skip_tls_verify`
+* `vault_role_id`
+* `vault_secret_id`
+
+
+#### Authenticating to Vault
+
+Terraform will use the AppRole auth method we defined above in order to authenticate with Vault.
+
+The `vault_role_id` and `vault_secret_id` variables will be marked **sensitive**. These and the other variables listed above can be set via the [UI](https://www.terraform.io/docs/cloud/workspaces/variables.html) or via the [API](https://www.terraform.io/docs/cloud/api/variables.html).
+
+Below, we illustrate how this can be done with the Terraform API. In order to do this, we will need either a [Team Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html#team-api-tokens) or [User Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html#user-api-tokens) that has privileges to write to the workspace we are working with.
 
 ### Environment Variables
 
