@@ -6,7 +6,7 @@ When our [Terraform](https://terraform.io) configuration needs to provision reso
 
 For organizations that use [Vault](https://vaultproject.io), we can alternatively leverage the [Vault Provider](https://www.terraform.io/docs/providers/vault/index.html) for Terraform and the [AWS Secrets Engine](https://www.vaultproject.io/docs/secrets/aws) in Vault to obtain just-in-time, short-lived AWS credentials for each Terraform run.
 
-Because Terraform will need to communicate with Vault, it is recommended that the approach described here be utilized with Terraform Enterprise and not with Terraform Cloud. We don't want to expose our Vault clusters to the outside world.
+Because Terraform will need to communicate with Vault, it is recommended that the approach described here be utilized with Terraform Enterprise and not with Terraform Cloud. We don't want to expose our Vault clusters to the public Internet.
 
 ## Configure Vault
 
